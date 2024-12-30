@@ -1,95 +1,151 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+const news = [
+  {
+    image:
+      "https://dash-api.yld.mn/api/image/58348918-6f3f-48bb-a049-8e8b2f71237e",
+    para: "Зах зээл",
+    title: "Орон сууцны үнэ иргэдийн орлогоос  2-2.5 дахин үнэтэй байна",
+    author: " С.Ангирмаа 12 сарын 17, 2024",
+    category: "Бизнес",
+  },
+  {
+    image:
+      "https://dash-api.yld.mn/api/image/2d83d835-062d-4a85-a4c0-c7b3887f278d",
+    para: " Эдийн засаг",
+    title: "Казакстаны хөгжлийн цаана",
+    author: " М.Хулан 12 сарын 17, 2024",
+    category: "Эдийн засаг",
+  },
+  {
+    image:
+      "https://dash-api.yld.mn/api/image/c00b3bc3-2340-49f4-84d3-a274bd10893f",
+    para: "Сурталчилгаа",
+    title: "Ариглан гамнаж, ашигтай хадгал",
+    author: "Б. Эмүжин 12 сарын 17, 2024",
+    category: "Сурталчилгаа",
+  },
+  {
+    image:
+      "https://dash-api.yld.mn/api/image/e00ad5b2-7618-4c71-9121-e1c12180184a",
+    para: "Хэвлэлийн мэдээ",
+    title: "Монгол бартендер дэлхийд өрсөлдлөө",
+    author: "Б. Эмүжин 12 сарын 17, 2024",
+    category: "Хэвлэлийн мэдээ",
+  },
+  {
+    image:
+      "https://dash-api.yld.mn/api/image/c00b3bc3-2340-49f4-84d3-a274bd10893f",
+    para: "Хэвлэлийн мэдээ",
+    title: "Ариглан гамнаж, ашигтай хадгал",
+    author: "Б. Эмүжин 12 сарын 17, 2024",
+    category: "Хэвлэлийн мэдээ",
+  },
+  {
+    image:
+      "https://dash-api.yld.mn/api/image/466e9012-492b-43c9-9449-aa118031efa9",
+    para: " Олон улс",
+    title:
+      "Уул уурхайн салбар гадаадын хөрөнгө оруулалтын 80% гаруйг бүрдүүлж байна",
+    author: " М.Хулан 12 сарын 16, 2024",
+    category: "Олон улс",
+  },
+  {
+    image:
+      "https://dash-api.yld.mn/api/image/f486afba-6fea-4318-baef-27c0e2582ff4",
+    para: "Бизнес",
+    title: "Vans-н орлого 11 дэх сардаа дараалан унасаар",
+    author: "М.Хулан 12 сарын 13, 2024",
+    category: "Бизнес",
+  },
+  {
+    image:
+      "https://dash-api.yld.mn/api/image/13aeb310-9ed2-478c-bf7a-a5f21ccc34c8",
+    para: "Санхүү",
+    title: " Apple Pay 10 жилийн ойгоороо Монголд нэвтэрлээ",
+    author: " С.Ангирмаа 12 сарын 14, 2024",
+    category: "Бизнес",
+  },
 
+  {
+    image:
+      "https://dash-api.yld.mn/api/image/e00ad5b2-7618-4c71-9121-e1c12180184a",
+    para: "Сурталчилгаа",
+    title: "Монгол бартендер дэлхийд өрсөлдлөө",
+    author: "Б. Эмүжин 12 сарын 17, 2024",
+    category: "Сурталчилгаа",
+  },
+
+  {
+    image:
+      "https://dash-api.yld.mn/api/image/466e9012-492b-43c9-9449-aa118031efa9",
+    para: " Эдийн засаг",
+    title:
+      "Уул уурхайн салбар гадаадын хөрөнгө оруулалтын 80% гаруйг бүрдүүлж байна",
+    author: " М.Хулан 12 сарын 16, 2024",
+    category: "Эдийн засаг",
+  },
+  {
+    image:
+      "https://dash-api.yld.mn/api/image/8234ae73-f50b-44e8-bdc4-b306f2e86d21",
+    para: " Эдийн засаг",
+    title:
+      "Монголын эдийн засаг улсын төсөв, урсгал тэнцлийн хос алдагдалтай байна",
+    author: " С.Ангирмаа 11 сарын 13, 2024",
+    category: "Эдийн засаг",
+  },
+  {
+    image:
+      "https://dash-api.yld.mn/api/image/489fa1f3-0cfc-4a01-a6e3-a0f599f88404",
+    para: "Сурталчилгаа",
+    title: "Cleaning at its finest",
+    author: "Б. Эмүжин 12 сарын 12, 2024",
+    category: "Сурталчилгаа",
+  },
+  {
+    image:
+      "https://dash-api.yld.mn/api/image/489fa1f3-0cfc-4a01-a6e3-a0f599f88404",
+    para: "Хэвлэлийн мэдээ",
+    title: "Cleaning at its finest",
+    author: "Б. Эмүжин 12 сарын 12, 2024",
+    category: "Хэвлэлийн мэдээ",
+  },
+  {
+    image:
+      "https://dash-api.yld.mn/api/image/064bc337-cdc2-44b9-bba2-b7ef2519e805",
+    para: " Олон улс",
+    title: "2024 он дуусахаас өмнө анхаарах үйл явдлууд",
+    author: " М.Хулан 12 сарын 4, 2024",
+    category: "Олон улс",
+  },
+
+  {
+    image:
+      "https://dash-api.yld.mn/api/image/97c7282a-af3f-4f91-b4aa-0ecd350f8c0c",
+    para: " Олон улс",
+    title: "Нобелийн 7 хоногийн сонин хачин",
+    author: " М.Хулан 12 сарын 14, 2024",
+    category: "Олон улс",
+  },
+];
+import Boost from "./components/components/Boost";
+import Header from "./components/components/Header";
+import Row from "./components/components/Row";
+import Book from "./components/components/Book";
+import Newsletter from "./components/components/Newsletter";
+import RowContainer from "./components/components/RowContainer";
+import Category from "./components/components/Category";
+import Footer from "./components/components/Footer";
+import "./globals.css";
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    <div>
+      <Header />
+      <Boost />
+      <Row news={news} />
+      <Book news={news} />
+      <Newsletter />
+      <RowContainer news={news} />
+      <Category news={news} />
+      <Footer />
     </div>
   );
 }
